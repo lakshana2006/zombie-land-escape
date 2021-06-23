@@ -4,9 +4,9 @@ var zombie,zombieSprite;
 
 
 function preload(){
-  backgroundImg = loadImage("images/background.png");
-  girl= loadAnimation("images/girl1.png","images/girl2.png");
-  zombie = loadAnimation("images/zombie1.png","images/zombie2.png");
+  backgroundImg = loadImage("background.png");
+  girl= loadAnimation("girl1.png","girl2.png");
+  zombie = loadAnimation("zombie1.png","zombie2.png");
 
 }
 
@@ -27,10 +27,10 @@ function draw() {
   background(backgroundImg);
 
   //moving the girl 
-  if(keyIsDown(UP_ARROW && girlSprite.position.y>=571)){
+  if(keyIsDown(UP_ARROW) && girlSprite.position.y>=585){
       girlSprite.position.y = girlSprite.position.y - 2;
   }     
- else if(keyIsDown(DOWN_ARROW)){
+ else if(keyIsDown(DOWN_ARROW) && girlSprite.position.y<=671){
     girlSprite.position.y = girlSprite.position.y + 2;
  }
   else if(keyIsDown(RIGHT_ARROW)){
@@ -40,6 +40,9 @@ function draw() {
     girlSprite.position.x = girlSprite.position.x - 2;
   }
   console.log(girlSprite.position.y);
+
+  zombieSprite.setVelocity(-2,0);
+ 
   
   drawSprites();
 }
